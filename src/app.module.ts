@@ -3,9 +3,21 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
-  imports: [AuthModule, UsersModule],
+  imports: [
+    AuthModule,
+    UsersModule,
+
+    //TypeOrmModule.forRoot({
+    // type: 'postgres', // Specify H2 database type
+    // database: ':memory:', // Use in-memory mode
+    ////entities: [YourEntity], // Register your entities
+    // entities: [__dirname + '/../**/*.entity{.ts,.js}'],
+    // synchronize: true,
+    //}) ,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })

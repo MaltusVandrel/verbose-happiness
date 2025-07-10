@@ -1,6 +1,8 @@
 import { Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
+import { Public } from './auth/public.decorator';
 
+@Public()
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
@@ -8,5 +10,9 @@ export class AppController {
   @Get()
   getHello(): string {
     return this.appService.getHello();
+  }
+  @Get('warning')
+  getWarning(): string {
+    return this.appService.getWarning();
   }
 }
