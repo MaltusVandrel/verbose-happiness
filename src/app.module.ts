@@ -10,13 +10,13 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     AuthModule,
     UsersModule,
 
-    //TypeOrmModule.forRoot({
-    // type: 'postgres', // Specify H2 database type
-    // database: ':memory:', // Use in-memory mode
-    ////entities: [YourEntity], // Register your entities
-    // entities: [__dirname + '/../**/*.entity{.ts,.js}'],
-    // synchronize: true,
-    //}) ,
+    TypeOrmModule.forRoot({
+      type: 'sqlite',
+      database: 'verbose-happiness.sqlite.db',
+      ////entities: [YourEntity], // Register your entities
+      entities: [__dirname + '/../**/*.entity{.ts,.js}'],
+      synchronize: true,
+    }),
   ],
   controllers: [AppController],
   providers: [AppService],
