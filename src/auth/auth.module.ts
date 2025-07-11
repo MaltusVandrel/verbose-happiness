@@ -14,7 +14,7 @@ import { RolesGuard } from './roles.guard';
     JwtModule.register({
       global: true,
       secret: jwtConstants.secret, //pegar de local seguro quando nao em quesito de estudos
-      signOptions: { expiresIn: '120s' },
+      signOptions: { expiresIn: '12h' },
     }),
   ],
   providers: [
